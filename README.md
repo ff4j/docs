@@ -1,27 +1,59 @@
-# ff4j-docs
-Building a real documentation for FF4j with MKDocs and Materials
+# FF4j Documentation
 
-Here is the link for MKDocs
+ [![Awesome](https://awesome.re/badge-flat.svg)](https://awesome.re)
 
-https://www.mkdocs.org/
+Static site is generated on branch `gh-pages` using a github action
 
-and here is the link to Material for MKDocs
+## Run the website locally
 
-https://squidfunk.github.io/mkdocs-material/
+### 1. Installation
 
+```bash
+python3 -m pip install --upgrade pip     # install pip
+python3 -m pip install mkdocs            # install mkdocs 
+python3 -m pip install mkdocs-material   # install material theme
+python3 -m pip install https://github.com/bmcorser/fontawesome-markdown/archive/master.zip   # install font-awesome
+python3 -m pip install mkdocs-git-revision-date-plugin # install git revision date
+python3 -m pip install mkdocs-video # install git revision date
+```
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+Or use this one-liner :) 
 
-## Commands
+```
+python3 -m pip install --upgrade pip && python3 -m pip install mkdocs mkdocs-material https://github.com/bmcorser/fontawesome-markdown/archive/master.zip mkdocs-git-revision-date-plugin
+```
 
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
+### 2. Run
 
-## Project layout
+```
+mkdocs serve
+```
 
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+You should be able to access it on http://localhost:8000
 
+**Known Issue:**
+
+If you get an `mkdocs not found error`, launch it this way: 
+
+```
+python3 -m mkdocs serve
+```
+
+### 3. Instructions
+
+#### Images
+
+**Caution**: when running locally, the site is served at `http://127.0.0.1:8000/pages/[...]`
+while when deployed, it is at `https://ff4j.github.io/docs/pages/[...]`.
+
+This means that if you use "absolute" image URLs such as `/img/ETC ETC` one will work
+and the other won't. Unfortunately you have to always use relative paths and climb up
+the ladder with `../../../../img/ETC ETC` !
+
+In other words, **if you use `"/img/tile-java.png"` it will render OK locally and
+then screw up once deployed**.
+
+Also, when calculating the number of `..` to insert, count ONE LESS for `index.md` files as opposed to all other `md` files:
+`index.md` renders as the page for the path containing it (`a/b/c/index.md` renders the URL `a/b/c`).
+
+For company logo files, SVG format is preferred to PNG.

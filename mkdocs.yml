@@ -1,5 +1,157 @@
-# yaml-language-server: $schema=https://squidfunk.github.io/mkdocs-material/schema.json
+# ------------------------------------------------------
+# Page tree
+# ------------------------------------------------------
+nav:
+  - index.md
+  - Getting Started:
+    - Getting Started: pages/basics/index.md
+    - Basics:
+      - ‣ Feature Flag: pages/basics/feature.md
+      - ‣ FeatureStore: pages/basics/feature-store.md
+      - ‣ PropertyStore: pages/basics/property-store.md
+      - ‣ Architecture: pages/basics/architecture.md
+      - ‣ Security: pages/basics/security.md
+      - ‣ Flipping Strategy: pages/basics/flipping-strategy.md
+    - Advanced:
+      - ‣ Features Groups: pages/astra/create-instance.md
+      - ‣ Aspect Oriented Programming: pages/astra/download-scb.md
+      - ‣ Caching: pages/astra/resume-db.md
+      - ‣ Spring Boot: pages/astra/multi-regions.md
+      - ‣ Command line interface: pages/astra/cqlproxy.md
+      - ‣ JMX Support: pages/astra/cqlproxy.md
+    - Web:
+      - ‣ Web Console: pages/astra/create-instance.md
+      - ‣ Taglib: pages/astra/create-instance.md
+      - ‣ Thymeleaf tags: pages/astra/create-instance.md
+      - ‣ REST Api: pages/astra/create-instance.md
+  
+  - Configuration:
+    - Stores:
+      - ‣ In Memory: pages/astra/create-instance.md
+      - ‣ Archaius: pages/astra/create-token.md
+      - ‣ Aws DynamoDB: pages/astra/astra-cli.md
+      - ‣ Aws SSM parameter Store: pages/astra/astra-cli.md
+      - ‣ Cassandra: pages/astra/astra-cli.md
+      - • Document: pages/develop/api/document.md
+    - Strategy:
+      - ‣ In Memory: pages/astra/create-instance.md
+    - Security:
+      - ‣ In Memory: pages/astra/create-instance.md  
 
-site_name: FF4J
+  - V2:
+    - Home: pages/data/index.md
+
+  - CLOUD:
+    - Home: pages/data/index.md
+  
+# ------------------------------------------------------
+# Settings
+# ------------------------------------------------------
+
+# Project information
+site_name: FF4j
+site_url: https://ff4j.github.io
+site_author: Cedrick Lunven
+site_description: >-
+ Documentation for FF4j
+
+# Repository
+repo_name: ff4j/ff4j-docs
+repo_url: https://github.com/ff4j/ff4j-docs
+edit_uri: ""
+
+# Theme
 theme:
-  name: material
+ name: material
+ language: en
+
+ favicon: img/favicon.svg
+ logo: img/favicon.ico
+ custom_dir: docs/overrides
+
+ features:
+    - content.code.annotate
+    - navigation.indexes
+    - navigation.sections
+    - navigation.tabs
+    - navigation.top
+    - navigation.tracking
+    - search.highlight
+    - search.share
+    - search.suggest
+    - toc.follow
+ palette:
+
+    - scheme: default
+      primary: teal
+      accent: teal
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+    - scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+
+ include_search_page: false
+ search_index_only: true
+
+# Markdown Support
+markdown_extensions:
+  - abbr
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - fontawesome_markdown
+  - meta
+  - md_in_html
+  - toc:
+      permalink: true
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem:
+      smart_enable: all
+  #- pymdownx.caret
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+      emoji_index: !!python/name:materialx.emoji.twemoji
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+
+# Plugins
+plugins:
+  - search
+  - git-revision-date
+  - mkdocs-video
+  #- render_swagger
+
+# Customization
+extra:
+  analytics:
+    provider: google
+    property: UA-99337757-1
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/ff4j
+    - icon: fontawesome/brands/twitter
+      link: https://twitter.com/clunven
+    - icon: fontawesome/brands/discord
+      link: https://discord.gg/WUQxSNmZ9h

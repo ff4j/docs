@@ -1,5 +1,4 @@
-# Welcome to FF4J
-
-FEATURE FLAGS FOR JAVA MADE EASY
-
-## Features
+---
+title: Home
+template: home.html
+---
