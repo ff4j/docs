@@ -7,41 +7,42 @@ nav:
     - Getting Started: pages/basics/index.md
     - Basics:
       - ‣ Feature Flag: pages/basics/feature.md
-      - ‣ FeatureStore: pages/basics/feature-store.md
-      - ‣ PropertyStore: pages/basics/property-store.md
+      - ‣ Feature Store: pages/basics/feature-store.md
+      - ‣ Property Store: pages/basics/property-store.md
       - ‣ Architecture: pages/basics/architecture.md
       - ‣ Security: pages/basics/security.md
       - ‣ Flipping Strategy: pages/basics/flipping-strategy.md
     - Advanced:
-      - ‣ Features Groups: pages/astra/create-instance.md
-      - ‣ Aspect Oriented Programming: pages/astra/download-scb.md
-      - ‣ Caching: pages/astra/resume-db.md
-      - ‣ Spring Boot: pages/astra/multi-regions.md
-      - ‣ Command line interface: pages/astra/cqlproxy.md
-      - ‣ JMX Support: pages/astra/cqlproxy.md
+      - ‣ Features Groups: pages/advanced/feature-groups.md
+      - ‣ Aspect Oriented Programming: pages/advanced/aop.md
+      - ‣ Caching: pages/advanced/caching.md
+      - ‣ Spring Boot: pages/advanced/spring-boot.md
+      - ‣ Command line interface: pages/advanced/cli.md
+      - ‣ JMX Support: pages/advanced/jmx.md
     - Web:
-      - ‣ Web Console: pages/astra/create-instance.md
-      - ‣ Taglib: pages/astra/create-instance.md
-      - ‣ Thymeleaf tags: pages/astra/create-instance.md
-      - ‣ REST Api: pages/astra/create-instance.md
+      - ‣ Web Console: pages/web/console.md
+      - ‣ Taglib: pages/web/taglib.md
+      - ‣ Thymeleaf tags: pages/web/thymeleaf.md
+      - ‣ REST Api: pages/web/apis.md
   
   - Configuration:
+    - Architecture: pages/configuration.md
     - Stores:
-      - ‣ In Memory: pages/astra/create-instance.md
-      - ‣ Archaius: pages/astra/create-token.md
-      - ‣ Aws DynamoDB: pages/astra/astra-cli.md
-      - ‣ Aws SSM parameter Store: pages/astra/astra-cli.md
-      - ‣ Cassandra: pages/astra/astra-cli.md
-      - • Document: pages/develop/api/document.md
+      - ‣ In Memory: pages/stores/in-memory.md
+      - ‣ Archaius: pages/stores/archaius.md
+      - ‣ Aws DynamoDB: pages/stores/aws-dynamo.md
+      - ‣ Aws SSM parameter Store: pages/stores/aws-ssm.md
+      - ‣ Cassandra: pages/stores/cassandra.md
+      - • MongoDB: pages/stores/mongo.md
     - Strategy:
-      - ‣ In Memory: pages/astra/create-instance.md
+      - ‣ In Memory: pages/strategy/create-instance.md
     - Security:
-      - ‣ In Memory: pages/astra/create-instance.md  
+      - ‣ In Memory: pages/security/create-instance.md
 
-  - V2:
-    - Home: pages/data/index.md
+  - Sample Codes:
+      - Home: pages/data/index.md
 
-  - CLOUD:
+  - External Links:
     - Home: pages/data/index.md
   
 # ------------------------------------------------------

@@ -241,24 +241,42 @@
 <!-- Main site box descriptions -->
 <div class="top-hr">
     <div class="feature-item">
-        <h2><i class="fa fa-cloud-upload "></i> DBAAS Apache Cassandra</h2>
-        <p>Start your cluster in the cloud within a few minutes for free with <b>no credit card required</b>. 
-          Keep using the free tier as much as you want with 20 million queries a month </p>
+        <h2><i class="fa fa-toggle-on"></i><b>&nbsp;Feature Toggle</b></h2>
+        <p>Enable. and disable features at runtime - no deployments. In your code implement multiple paths protected by dynamic predicates (if/then/else).</p>
+        <p><img src="img/home/feature_01_featuretoggle.png" width="400px" height="300px"/></p>
+
     </div>
     <div class="feature-item">
-        <h2><i class="fa fa-code "></i> Different Apis with Stargate</h2>
-        <p>Leverage <b>gRPC</b>, <b>graphQL</b>, and <b>REST</b> apis to build great stateless applications. You can keep using Cassandra Drivers and related frameworks if you prefer</p>
+        <h2><i class="fa fa-user"></i><b>&nbsp;Canary Releases</b></h2>
+        <p>Enable features not only with flag values but also drive access with roles and groups (Canary Release). Different frameworks supported starting by Spring Security.</p>
+        <p><img src="img/home/feature_02_permissions.png" width="400px" height="300px"/></p>
     </div>
     <div class="feature-item">
-        <h2><i class="fa fa-envelope-o"></i> Streaming with Apache Pulsar</h2> 
-        <p>Introduce realtime data in your projects with <b>Apache Pulsar™</b> support with lots of interfaces (JMS, AMQP, Kafka) and features provided (functions, CDC, sinks...)</p>
+        <h2><i class="fa fa-code"></i><b>&nbsp;Custom Rules</b></h2>
+        <p>Create custom predicates to evaluate if features are enabled. Some provided like White listing,Time-based, expression-based or connect systems like Drools.</p>
+        <p><img src="img/home/feature_03_strategy.png" width="400px" height="300px"/></p>
     </div>
 </div>
 
 <div class="top-hr">
-    <div class="hr">
+    <div class="feature-item">
+        <h2><i class="fa fa-desktop"></i><b>&nbsp;Web Console</b></h2>
+        <p>Administrate FF4j (including features and properties) with the web UI. Packaged as a servlet in the library you will expose it in your backend applications. Almost 10 languages available..</p>
+        <p><img src="img/home/feature_07_webconsole.png" width="400px" height="300px"/></p>
+
+    </div>
+    <div class="feature-item">
+        <h2><i class="fa fa-code-fork"></i><b>&nbsp;Rest API</b></h2>
+        <p>Operate FF4j through a WEB API. This is the way to go to use ff4j with others languages, specially javascript frontends.(also: leverage on FeatureStoreHttp to avoid microservices to directly connect to the DB.</p>
+        <p><img src="img/home/console-restapi.png" width="400px" height="300px"/></p>
+    </div>
+    <div class="feature-item">
+        <h2><i class="fa fa-terminal"></i><b>&nbsp;Command Line Interface</b></h2>
+        <p>To automate things or because web ports may be blocked (you know, production...) you can work through SSH using our Command Line Interface (cli), our Shell #devOps. It will interact directly with storages..</p>
+        <p><img src="img/home/feature_09_cli.png" width="400px" height="300px"/></p>
     </div>
 </div>
+
 
 {% endblock %}
 {% block content %}{% endblock %}

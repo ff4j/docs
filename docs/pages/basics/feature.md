@@ -1,4 +1,6 @@
-### Definition
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+
+### Overview
 
 The [`Feature`](https://github.com/clun/ff4j/blob/master/ff4j-core/src/main/java/org/ff4j/core/Feature.java) term is used to represent functionality or treatment in an application. 
 It is identified by an unique identifier (uid). 
@@ -23,33 +25,69 @@ if (ff4j.check("f1")) {
 }
 ```
 
-### `Feature` Object
+### `Feature` object
 
-With the library `FF4J`, a feature is an object with multiple fields, not only identifier and state. You can also define:
+With the library `FF4J`, a feature is an object with multiple attributes (not only identifier and state): 
+
 - A text **description** to explain the purpose
 - An _optional_ **groupName** to toggle multiple features at once (see [`FeatureGroup`](#group))
 - An _optional_ **set of permissions** to implement RBAC access. (see [`Permissions`](#permissions-and-security))
 - An _optional_ **flipping strategy** to implement your predicates (see [`FlippingStrategy`](#flipping-strategy))
 - A **key/value map** named `customProperties` to create some context
 
-*Samples Codes*
+    ```mermaid
+    classDiagram
+    Feature --* FlippingStrategy
+    Feature --* Property
+    
+    Feature : enable()
+    Feature : disable()
+    Feature : toJson()
+    Feature : fromJson(...)  
+    Feature : getters()
+    Feature : setters()
+    Feature : String uid
+    Feature : boolean enable
+    Feature : String description
+    Feature : String group
+    Feature : Set<String> permissions
+    Feature : Map<String,Property> customProperties
+    FlippingStrategy : getInitParams()
+    FlippingStrategy : evaluate()
+    Property : name
+    Property : value
+    ```
+
+### Sample codes
+
+You can interact with the `Feature` object programmatically :
+
 ```java
 Feature f1 = new Feature("f1");
 Feature f2 = new Feature("f2", false, "sample description");
+```
 
-// Illstrating Permissions
+- Feature with **Permissions**:
+
+```java
 Set < String > permission = new HashSet<String>();
 permission.add("BETA-TESTER");
 permission.add("VIP");
-Feature f3 = new Feature("f3", false, "sample description", "GROUP_1", permission);
-        
-// Create custom properties
+Feature f3 = new Feature("f3", false, "desc", "GROUP_1", permission);
+```
+
+- Feature with **Custom Properties**:
+
+```java
 Feature f4 = new Feature("f4");
 f4.addProperty(new PropertyString("p1", "v1"));
 f4.addProperty(new PropertyDouble("pie", Math.PI));
 f4.addProperty(new PropertyInt("myAge", 12));
+```
 
-// Working with ReleaseDate Flipping Strategy
+- Feature with `FlippingStrategy`
+
+```java
 Feature f5 = new Feature("f5");
 Calendar nextReleaseDate = Calendar.getInstance();
 nextReleaseDate.set(Calendar.MONTH, Calendar.SEPTEMBER);
@@ -65,57 +103,6 @@ Feature f7 = new Feature("f7");
 f7.setFlippingStrategy(new WhiteListStrategy("localhost"));
 ```
 
-It is not likely that you do have to create the `Features` objects on your own (except for tests). They will be stored in the FeatureStore and purpose is really to `check` the status at runtime. You may want to create them through the webUI or configuration files.
+It is not likely that you do have to create the `Features` objects on your own (except for tests). They will be stored in the FeatureStore and purpose is really to `check` the status at runtime. You may want to create them through the webUI or configuration files. Attributes mentionned before are available in the `edit` modal:
 
-```
-                                                       ,------------.                                                       
-                                                       |Serializable|                                                       
-                                                       |------------|                                                       
-                                                       |------------|                                                       
-                                                       `------------'                                                       
-                                                              |                                                             
-                                                              |                                                             
-,--------------------------------------------------------------------------------------------------------------------------.
-|Feature                                                                                                                   |
-|--------------------------------------------------------------------------------------------------------------------------|
-|-long serialVersionUID                                                                                                    |
-|-String uid                                                                                                               |
-|-boolean enable                                                                                                           |
-|-String description                                                                                                       |
-|-String group                                                                                                             |
-|-Set<String> permissions                                                                                                  |
-|-FlippingStrategy flippingStrategy                                                                                        |
-|-Map<String,Property<?>> customProperties                                                                                 |
-|--------------------------------------------------------------------------------------------------------------------------|
-|+Feature(String uid)                                                                                                      |
-|+Feature(String uid, boolean penable)                                                                                     |
-|+Feature(String uid, boolean penable, String pdescription)                                                                |
-|+Feature(String uid, boolean penable, String pdescription, String group)                                                  |
-|+Feature(String uid, boolean penable, String pdescription, String group, Collection<String> auths)                        |
-|+Feature(String uid, boolean penable, String pdescription, String group, Collection<String> auths, FlippingStrategy strat)|
-|+Feature(Feature f)                                                                                                       |
-|+String toString()                                                                                                        |
-|+String toJson()                                                                                                          |
-|+Feature fromJson(String jsonString)                                                                                      |
-|+void enable()                                                                                                            |
-|+void disable()                                                                                                           |
-|+void toggle()                                                                                                            |
-|+String getUid()                                                                                                          |
-|+void setUid(String uid)                                                                                                  |
-|+boolean isEnable()                                                                                                       |
-|+void setEnable(boolean enable)                                                                                           |
-|+String getDescription()                                                                                                  |
-|+void setDescription(String description)                                                                                  |
-|+FlippingStrategy getFlippingStrategy()                                                                                   |
-|+void setFlippingStrategy(FlippingStrategy flippingStrategy)                                                              |
-|+String getGroup()                                                                                                        |
-|+void setGroup(String group)                                                                                              |
-|+Set<String> getPermissions()                                                                                             |
-|+void setPermissions(Set<String> permissions)                                                                             |
-|+Property<T> getProperty(String propId)                                                                                   |
-|+void addProperty(Property<T> props)                                                                                      |
-|+Map<String,Property<?>> getCustomProperties()                                                                            |
-|+void setCustomProperties(Map<String,Property<?>> customProperties)                                                       |
-`--------------------------------------------------------------------------------------------------------------------------'
-
-```
+![pic](../../img/fig-02-feature.png)
