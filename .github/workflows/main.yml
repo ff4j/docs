@@ -19,8 +19,9 @@ jobs:
       - name: Install dependencies
         run: |
           python3 -m pip install --upgrade pip     # install pip
-          python3 -m pip install mkdocs            # install mkdocs 
+          python3 -m pip install mkdocs            # install mkdocs
           python3 -m pip install mkdocs-material   # install material theme
+          python3 -m pip install mkdocs-video      # install video 
           python3 -m pip install https://github.com/bmcorser/fontawesome-markdown/archive/master.zip
           python3 -m pip install mkdocs-git-revision-date-plugin # install git revision date
       - name: Build site
