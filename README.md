@@ -2,7 +2,7 @@
 
  [![Awesome](https://awesome.re/badge-flat.svg)](https://awesome.re)
 
-Static site is generated on branch `gh-pages` using a github action
+Static site is generated on branch `gh-pages` using a github actions.
 
 ## Run the website locally
 
