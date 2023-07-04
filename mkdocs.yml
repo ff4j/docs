@@ -68,7 +68,7 @@ theme:
 
  favicon: img/favicon.svg
  logo: img/favicon.ico
- custom_dir: overrides
+ custom_dir: docs/overrides
 
  features:
     - content.code.annotate
