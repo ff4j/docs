@@ -32,7 +32,6 @@ nav:
     - v2: pages/v2/index.md
     - web: pages/web/index.md
 
-
   - Spring applications:
       - Home: pages/spring/index.md
 
