@@ -25,7 +25,7 @@ nav:
       - ‣ Thymeleaf tags: pages/web/thymeleaf.md
       - ‣ REST Api: pages/web/apis.md
   
-  - Configuration:
+  - Store Configurations:
     - Architecture: pages/configuration.md
     - Stores:
       - ‣ In Memory: pages/stores/in-memory.md
@@ -38,6 +38,9 @@ nav:
       - ‣ In Memory: pages/strategy/create-instance.md
     - Security:
       - ‣ In Memory: pages/security/create-instance.md
+
+  - Spring applications:
+      - Home: pages/spring/index.md
 
   - Sample Codes:
       - Home: pages/samples/index.md
