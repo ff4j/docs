@@ -27,23 +27,18 @@ nav:
   
   - Store Configurations:
     - Architecture: pages/configuration.md
-    - Stores:
-      - ‣ In Memory: pages/stores/in-memory.md
-      - ‣ Archaius: pages/stores/archaius.md
-      - ‣ Aws DynamoDB: pages/stores/aws-dynamo.md
-      - ‣ Aws SSM parameter Store: pages/stores/aws-ssm.md
-      - ‣ Cassandra: pages/stores/cassandra.md
-      - • MongoDB: pages/stores/mongo.md
-    - Strategy:
-      - ‣ In Memory: pages/strategy/create-instance.md
-    - Security:
-      - ‣ In Memory: pages/security/create-instance.md
+    - Stores: pages/stores/index.md
+    - Flipping Strategies: pages/strategy/index.md
+    - v2: pages/v2/index.md
+    - web: pages/web/index.md
+
 
   - Spring applications:
       - Home: pages/spring/index.md
 
   - Sample Codes:
       - Home: pages/samples/index.md
+      - Cheat: cheat.md
   
 # ------------------------------------------------------
 # Settings
@@ -106,7 +101,6 @@ markdown_extensions:
   - attr_list
   - def_list
   - footnotes
-  - fontawesome_markdown
   - meta
   - md_in_html
   - toc:
