@@ -6,10 +6,9 @@ site_description: >-
   Documentation for FF4j
 
 # Repository
-repo_name: ff4j/ff4j-docs
+repo_name: ff4j/docs
 repo_url: https://github.com/ff4j/ff4j-docs
-edit_uri: ""
-
+edit_uri: "edit/main/docs/"
 
 # Navigation
 
