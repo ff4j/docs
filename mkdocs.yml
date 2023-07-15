@@ -1,0 +1,37 @@
+# Project information
+site_name: FF4j
+site_url: https://ff4j.github.io
+site_author: Cedrick Lunven, Paul WILLIAMS
+site_description: >-
+  Documentation for FF4j
+
+# Repository
+repo_name: ff4j/ff4j-docs
+repo_url: https://github.com/ff4j/ff4j-docs
+edit_uri: ""
+
+
+# Navigation
+
+
+# Theme settings
+theme:
+  name: material
+  language: en
+  palette:
+    - scheme: default
+      primary: teal
+      accent: teal
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+    - scheme: slate
+      primary: teal
+      accent: teal
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+
+# Copyright
+copyright: Built by FF4j
+
