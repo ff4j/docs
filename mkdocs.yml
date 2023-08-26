@@ -1,5 +1,5 @@
 # Project information
-site_name: FF4j
+site_name: FF4J Docs
 site_url: https://ff4j.github.io
 site_author: Cedrick Lunven, Paul WILLIAMS
 site_description: >-
@@ -11,12 +11,19 @@ repo_url: https://github.com/ff4j/ff4j-docs
 edit_uri: "edit/main/docs/"
 
 # Navigation
+nav:
+  - Home: index.md
 
+extra_css:
+  - /stylesheets/bootstrap-grid.min.css
 
-# Theme settings
+  # Theme settings
 theme:
   name: material
   language: en
+  custom_dir: material/overrides
+  icon:
+    logo: material/toggle-switch
   palette:
     - scheme: default
       primary: teal
