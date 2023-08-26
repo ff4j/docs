@@ -38,6 +38,14 @@ theme:
         icon: material/weather-night
         name: Switch to dark mode
 
+# Extensions
+markdown_extensions:
+  - attr_list
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+
+
 # Copyright
 copyright: Built by FF4j
 

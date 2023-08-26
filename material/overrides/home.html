@@ -2,10 +2,6 @@
 {% block tabs %}
 {{ super() }}
 <style>
-    .md-header__title {
-        margin-left: 0 !important;
-    }
-
     .home-header {
         padding-top: 3rem;
         background: var(--md-primary-fg-color);
@@ -38,7 +34,6 @@
     .features h2 {
         font-weight: 700;
     }
-
 </style>
 <section class="mdx-container home-header">
     <div class="md-grid md-typeset">
@@ -59,20 +54,21 @@
 
 <section class="mdx-container features">
     <div class="md-grid container-fluid">
-        <div class="row md-typeset pt-1">
+        <div class="row md-typeset">
             <div class="col-md-6 col-sm-12 d-block">
                 <h2><b>Feature toggle</b></h2>
                 <p>Enable and disable features at runtime - <b>no deployments</b>.</p>
-                <p>In your code implement multiple paths protected by dynamic predicates <code>(if/then/else)</code>.
+                <p>In your code implement multiple paths protected by dynamic predicates
+                    <code>(if/then/else)</code>.
                 </p>
             </div>
             <div class="col-md-6 d-none d-md-block">
-                <h3>Picture</h3>
+                <h3><img src="img/home/feature_01_featuretoggle.png" width="400px" height="300px"/></h3>
             </div>
         </div>
         <div class="row md-typeset">
             <div class="col-md-6 d-none d-md-block">
-                <h3>Picture</h3>
+                <h3><img src="img/home/feature_02_permissions.png" width="400px" height="300px"/></h3>
             </div>
             <div class="col-md-6 col-sm-12 d-block">
                 <h2><b>Canary releases</b></h2>
@@ -87,12 +83,12 @@
                     listing, time-based, expression-based or connect systems like drools.</p>
             </div>
             <div class="col-md-6 d-none d-md-block">
-                <h3>Picture</h3>
+                <h3><img src="img/home/feature_03_strategy.png" width="400px" height="300px"/></h3>
             </div>
         </div>
         <div class="row md-typeset">
             <div class="col-md-6 d-none d-md-block">
-                <h3>Picture</h3>
+                <h3><img src="img/home/feature_07_webconsole.png"/></h3>
             </div>
             <div class="col-md-6 col-sm-12 d-block">
                 <h2><b>Web console</b></h2>
@@ -108,12 +104,12 @@
                     to the DB.</p>
             </div>
             <div class="col-md-6 d-none d-md-block">
-                <h3>Picture</h3>
+                <h3><img src="img/home/console-restapi.png"/></h3>
             </div>
         </div>
         <div class="row md-typeset">
             <div class="col-md-6 d-none d-md-block">
-                <h3>Picture</h3>
+                <h3><img src="img/home/feature_09_cli.png"/></h3>
             </div>
             <div class="col-md-6 col-sm-12 d-block">
                 <h2><b>Command-line interface</b></h2>
