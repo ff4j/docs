@@ -1,0 +1,9 @@
+[project]
+name = "ff4j-docs"
+version = "0.0.1"
+description = "Documentation for Feature Flipping for Java (ff4j)"
+readme = "README.md"
+requires-python = ">=3.14.2"
+dependencies = [
+    "zensical>=0.0.16",
+]
