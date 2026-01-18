@@ -1,5 +1,5 @@
 [project]
-site_name = "ff4j"
+site_name = "FF4j Documentation"
 site_description = "Documentation for Feature Flipping for Java (ff4j)"
 site_author = "Paul WILLIAMS"
 site_url = "https://ff4j.github.io/docs/"
@@ -34,7 +34,8 @@ nav = [
 # Section for configuring theme options
 # ----------------------------------------------------------------------------
 [project.theme]
-
+logo = "img/ff4j-logo.svg"
+favicon = "img/ff4j-logo.svg"
 # change this to "classic" to use the traditional Material for MkDocs look.
 #variant = "classic"
 
