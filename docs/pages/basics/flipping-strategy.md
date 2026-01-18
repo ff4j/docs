@@ -1,1 +1,0 @@
-this is flipping strategy
