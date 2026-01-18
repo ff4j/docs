@@ -1,0 +1,19 @@
+# VSCode
+.vscode/
+*.code-workspace
+
+# IntelliJ
+.idea/
+*.iml
+
+# MacOS
+.DS_Store
+
+# UV
+.venv/
+__pycache__/
+*.pyc
+.cache/
+
+# mkdocs
+/site/
