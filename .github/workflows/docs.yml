@@ -1,14 +1,100 @@
 name: Documentation
 on:
+  pull_request:
+    types: [opened, synchronize, reopened, closed]
+    branches:
+      - feature/zensical
   push:
     branches:
-      - main
+      - feature/zensical
 permissions:
-  contents: read
-  pages: write
-  id-token: write
+  contents: write        # gh-pages + cleanup
+  pull-requests: write   # PR comments
+  pages: write           # deploy-pages
+  id-token: write        # required by deploy-pages
 jobs:
   build:
+    if: github.event.action != 'closed'
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v6
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: "Set up Python"
+        uses: actions/setup-python@v6
+        with:
+          python-version-file: "pyproject.toml"
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v7
+
+      - name: Sync dependencies
+        run: uv sync
+
+      - name: Build site
+        run: uv run zensical build --clean
+
+      - name: Deploy PR preview
+        if: github.event_name == 'pull_request'
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: site
+          destination_dir: pr-${{ github.event.pull_request.number }}
+
+      - name: Comment PR with preview URL
+        if: github.event_name == 'pull_request'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const pr = context.payload.pull_request.number;
+            const { owner, repo } = context.repo;
+
+            const url = `https://ff4j.github.io/docs/pr-${pr}/`;
+
+            await github.rest.issues.createComment({
+              owner,
+              repo,
+              issue_number: pr,
+              body: `📘 **Site preview available**:\n\n${url}`
+            });
+
+      - name: Upload Pages artifact
+        if: github.event_name == 'push'
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+  publish:
+    if: github.event_name == 'push'
+    runs-on: ubuntu-latest
+    needs: build
+    environment:
+      name: github-pages
+    steps:
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v4
+
+  cleanup:
+    if: github.event_name == 'pull_request' &&
+      github.event.action == 'closed' &&
+      github.event.pull_request.merged == false
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout gh-pages branch
+        uses: actions/checkout@v4
+        with:
+          ref: gh-pages
+
+      - name: Remove PR preview folder
+        run: |
+          rm -rf pr-${{ github.event.pull_request.number }}
+
+      - name: Commit cleanup
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git commit -am "chore: remove preview for PR #${{ github.event.pull_request.number }}" || exit 0
+          git push
