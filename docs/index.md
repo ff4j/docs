@@ -1,7 +1,3 @@
 ---
-icon: lucide/rocket
+template: home.html
 ---
-
-# Get started
-
-The site is being built and should come up soon
