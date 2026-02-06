@@ -26,11 +26,47 @@
       marker-end: url(#arrowhead);
       opacity: 0.9;
       }
+
+      .arrow-red {
+      stroke: #9F1239;
+      stroke-width: 3;
+      fill: none;
+      marker-end: url(#arrowhead-red);
+      }
+
+      .flow {
+      stroke: #2E8B57;
+      stroke-width: 4;
+      fill: none;
+      stroke-dasharray: 10 14;
+      animation: flow 1.4s linear infinite;
+      }
+
+      .flow-arrow {
+      stroke: #2E8B57;
+      stroke-width: 4;
+      fill: none;
+      stroke-dasharray: 10 14;
+      animation: flow 1.4s linear infinite;
+      marker-end: url(#arrowhead-glow);
+      }
+
+      @keyframes flow {
+      to { stroke-dashoffset: -24; }
+      }
     </style>
 
     <!-- Arrow -->
     <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
       <polygon points="0 0, 10 3.5, 0 7" fill="#34D399" />
+    </marker>
+
+    <marker id="arrowhead-red" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#9F1239"/>
+    </marker>
+
+    <marker id="arrowhead-glow" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#2E8B57"/>
     </marker>
 
     <filter id="accent-glow" x="-50%" y="-50%" width="200%" height="200%">
@@ -95,11 +131,11 @@
     <text x="400" y="230" font-size="24" class="label">check</text>
 
     <!-- Paths -->
-    <line x1="280" y1="225" x2="180" y2="225" stroke="#34D399" stroke-width="2.5" opacity="0.9" />
-    <line x1="180" y1="225" x2="180" y2="330" class="arrow" />
+    <line x1="280" y1="225" x2="180" y2="225" stroke="#9F1239" stroke-width="2.5" opacity="0.9" />
+    <line x1="180" y1="225" x2="180" y2="330" class="arrow-red" />
 
-    <line x1="520" y1="225" x2="620" y2="225" stroke="#34D399" stroke-width="2.5" opacity="0.9" />
-    <line x1="620" y1="225" x2="620" y2="330" class="arrow" />
+    <line x1="520" y1="225" x2="620" y2="225" class="flow" />
+    <line x1="620" y1="225" x2="620" y2="330" class="flow-arrow" />
 
     <!-- Labels -->
     <text x="190" y="255" font-size="18" class="muted">« false »</text>
