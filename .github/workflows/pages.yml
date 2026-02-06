@@ -70,7 +70,6 @@ jobs:
     needs: build
     environment:
       name: github-pages
-      url: https://paulwilliams.dev
     steps:
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v4
