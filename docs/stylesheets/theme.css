@@ -112,7 +112,7 @@
   background-clip: text;
   -webkit-text-fill-color: transparent;
   font-size: 2rem;
-  margin-bottom: 1rem;
+  margin: 0;
 }
 
 .features p {
