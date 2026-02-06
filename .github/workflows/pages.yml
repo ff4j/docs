@@ -1,12 +1,10 @@
-name: Documentation
+name: PR Preview & GitHub Pages Publish
 on:
   pull_request:
     types: [opened, synchronize, reopened, closed]
-    branches:
-      - feature/zensical
   push:
     branches:
-      - feature/zensical
+      - main
 permissions:
   contents: write        # gh-pages + cleanup
   pull-requests: write   # PR comments
@@ -72,13 +70,15 @@ jobs:
     needs: build
     environment:
       name: github-pages
+      url: https://paulwilliams.dev
     steps:
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v4
 
   cleanup:
     if: github.event_name == 'pull_request' &&
-      github.event.action == 'closed'
+      github.event.action == 'closed' &&
+      github.event.pull_request.merged == false
     runs-on: ubuntu-latest
 
     steps:
