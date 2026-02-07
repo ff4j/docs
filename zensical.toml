@@ -20,12 +20,12 @@ nav = [
       { "Security" = "pages/about/core-concepts/security/index.md" }
     ] },
     { "Advanced Concepts" = [
-      { "AOP" = "pages/about/advance-concepts/aop/index.md" },
-      { "Caching" = "pages/about/advance-concepts/caching/index.md" },
-      { "CLI" = "pages/about/advance-concepts/cli/index.md" },
-      { "Feature Groups" = "pages/about/advance-concepts/feature-groups/index.md" },
-      { "JMX" = "pages/about/advance-concepts/jmx/index.md" },
-      { "Spring Boot" = "pages/about/advance-concepts/spring-boot/index.md" }
+      { "AOP" = "pages/about/advanced-concepts/aop/index.md" },
+      { "Caching" = "pages/about/advanced-concepts/caching/index.md" },
+      { "CLI" = "pages/about/advanced-concepts/cli/index.md" },
+      { "Feature Groups" = "pages/about/advanced-concepts/feature-groups/index.md" },
+      { "JMX" = "pages/about/advanced-concepts/jmx/index.md" },
+      { "Spring Boot" = "pages/about/advanced-concepts/spring-boot/index.md" }
     ] }
   ] },
   { "Flipping Strategies" = [
@@ -48,7 +48,7 @@ nav = [
     { "Archaius" = "pages/stores/archaius/index.md" },
     { "AWS DynamoDB" = "pages/stores/aws-dynamo-db/index.md" },
     { "AWS SSM Parameter Store" = "pages/stores/aws-ssm-parameter-store/index.md" },
-    { "Cassandra" = "pages/stores/casandra/index.md" },
+    { "Cassandra" = "pages/stores/cassandra/index.md" },
     { "Consul" = "pages/stores/consul/index.md" },
     { "Default" = "pages/stores/default/index.md" },
     { "Ehcache" = "pages/stores/eh-cache/index.md" },
