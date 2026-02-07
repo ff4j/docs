@@ -8,8 +8,62 @@ Copyright &copy; 2026 ff4j. All rights reserved.
 """
 
 nav = [
-   { "Home" = "index.md" }
- ]
+  { "Home" = "index.md" },
+  { "About" = [
+    { "Quick Start" = "pages/about/quickstart/index.md" },
+    { "Core Concepts" = [
+      { "Architecture" = "pages/about/core-concepts/architecture/index.md" },
+      { "Feature" = "pages/about/core-concepts/feature/index.md" },
+      { "Feature Store" = "pages/about/core-concepts/feature-store/index.md" },
+      { "Property" = "pages/about/core-concepts/property/index.md" },
+      { "Property Store" = "pages/about/core-concepts/property-store/index.md" },
+      { "Security" = "pages/about/core-concepts/security/index.md" }
+    ] },
+    { "Advanced Concepts" = [
+      { "AOP" = "pages/about/advance-concepts/aop/index.md" },
+      { "Caching" = "pages/about/advance-concepts/caching/index.md" },
+      { "CLI" = "pages/about/advance-concepts/cli/index.md" },
+      { "Feature Groups" = "pages/about/advance-concepts/feature-groups/index.md" },
+      { "JMX" = "pages/about/advance-concepts/jmx/index.md" },
+      { "Spring Boot" = "pages/about/advance-concepts/spring-boot/index.md" }
+    ] }
+  ] },
+  { "Flipping Strategies" = [
+    { "Blacklist" = "pages/flipping-strategies/blacklist/index.md" },
+    { "Client Filter" = "pages/flipping-strategies/client-filter/index.md" },
+    { "Dark Launch" = "pages/flipping-strategies/dark-launch/index.md" },
+    { "Drools" = "pages/flipping-strategies/drools/index.md" },
+    { "Expression" = "pages/flipping-strategies/expression/index.md" },
+    { "Office Hour" = "pages/flipping-strategies/office-hour/index.md" },
+    { "Ponderation" = "pages/flipping-strategies/ponderation/index.md" },
+    { "Release Date" = "pages/flipping-strategies/release-date/index.md" },
+    { "Server Filter" = "pages/flipping-strategies/server-filter/index.md" },
+    { "Whitelist" = "pages/flipping-strategies/whitelist/index.md" }
+  ] },
+  { "Security" = [
+    { "Apache Shiro" = "pages/security/apache-shiro/index.md" },
+    { "Spring" = "pages/security/spring/index.md" }
+  ] },
+  { "Stores" = [
+    { "Archaius" = "pages/stores/archaius/index.md" },
+    { "AWS DynamoDB" = "pages/stores/aws-dynamo-db/index.md" },
+    { "AWS SSM Parameter Store" = "pages/stores/aws-ssm-parameter-store/index.md" },
+    { "Cassandra" = "pages/stores/casandra/index.md" },
+    { "Consul" = "pages/stores/consul/index.md" },
+    { "Default" = "pages/stores/default/index.md" },
+    { "Ehcache" = "pages/stores/eh-cache/index.md" },
+    { "Elasticsearch" = "pages/stores/elastic/index.md" },
+    { "JDBC" = "pages/stores/jdbc/index.md" },
+    { "MongoDB" = "pages/stores/mongodb/index.md" },
+    { "Neo4j" = "pages/stores/neo4j/index.md" },
+    { "Redis" = "pages/stores/redis/index.md" },
+    { "Spring JDBC" = "pages/stores/spring-jdbc/index.md" }
+  ] },
+  { "Web" = [
+    { "RESTful API" = "pages/web/restful-api/index.md" },
+    { "Web Console" = "pages/web/web-console/index.md" }
+  ] }
+]
 
 extra_css = ["stylesheets/bootstrap-grid.min.css", "stylesheets/theme.css"]
 
