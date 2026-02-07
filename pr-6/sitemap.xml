@@ -25,22 +25,22 @@
         <loc>https://ff4j.github.io/docs/pages/about/core-concepts/security/</loc>
       </url>
       <url>
-        <loc>https://ff4j.github.io/docs/pages/about/advance-concepts/aop/</loc>
+        <loc>https://ff4j.github.io/docs/pages/about/advanced-concepts/aop/</loc>
       </url>
       <url>
-        <loc>https://ff4j.github.io/docs/pages/about/advance-concepts/caching/</loc>
+        <loc>https://ff4j.github.io/docs/pages/about/advanced-concepts/caching/</loc>
       </url>
       <url>
-        <loc>https://ff4j.github.io/docs/pages/about/advance-concepts/cli/</loc>
+        <loc>https://ff4j.github.io/docs/pages/about/advanced-concepts/cli/</loc>
       </url>
       <url>
-        <loc>https://ff4j.github.io/docs/pages/about/advance-concepts/feature-groups/</loc>
+        <loc>https://ff4j.github.io/docs/pages/about/advanced-concepts/feature-groups/</loc>
       </url>
       <url>
-        <loc>https://ff4j.github.io/docs/pages/about/advance-concepts/jmx/</loc>
+        <loc>https://ff4j.github.io/docs/pages/about/advanced-concepts/jmx/</loc>
       </url>
       <url>
-        <loc>https://ff4j.github.io/docs/pages/about/advance-concepts/spring-boot/</loc>
+        <loc>https://ff4j.github.io/docs/pages/about/advanced-concepts/spring-boot/</loc>
       </url>
       <url>
         <loc>https://ff4j.github.io/docs/pages/flipping-strategies/blacklist/</loc>
@@ -88,7 +88,7 @@
         <loc>https://ff4j.github.io/docs/pages/stores/aws-ssm-parameter-store/</loc>
       </url>
       <url>
-        <loc>https://ff4j.github.io/docs/pages/stores/casandra/</loc>
+        <loc>https://ff4j.github.io/docs/pages/stores/cassandra/</loc>
       </url>
       <url>
         <loc>https://ff4j.github.io/docs/pages/stores/consul/</loc>
