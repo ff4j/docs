@@ -137,3 +137,9 @@ html {
     min-height: 100%;
   }
 }
+
+h1 + p {
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.4;
+}
