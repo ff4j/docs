@@ -29,6 +29,7 @@ nav = [
     ] }
   ] },
   { "Flipping Strategies" = [
+    { "Overview" = "pages/flipping-strategies/overview/index.md" },
     { "Blacklist" = "pages/flipping-strategies/blacklist/index.md" },
     { "Client Filter" = "pages/flipping-strategies/client-filter/index.md" },
     { "Dark Launch" = "pages/flipping-strategies/dark-launch/index.md" },
@@ -45,6 +46,7 @@ nav = [
     { "Spring" = "pages/security/spring/index.md" }
   ] },
   { "Stores" = [
+    { "Overview" = "pages/stores/overview/index.md" },
     { "Archaius" = "pages/stores/archaius/index.md" },
     { "AWS DynamoDB" = "pages/stores/aws-dynamo-db/index.md" },
     { "AWS SSM Parameter Store" = "pages/stores/aws-ssm-parameter-store/index.md" },
