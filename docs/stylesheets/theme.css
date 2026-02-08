@@ -143,3 +143,8 @@ h1 + p {
   font-weight: 500;
   line-height: 1.4;
 }
+
+img {
+  border-radius: 8px;
+  box-shadow: var(--md-shadow-z2);
+}
