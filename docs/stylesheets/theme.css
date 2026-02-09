@@ -154,3 +154,9 @@ img {
   border-radius: 8px;
   box-shadow: var(--md-shadow-z2);
 }
+
+/* Center Mermaid diagrams */
+.mermaid {
+  display: flex;
+  justify-content: center;
+}
