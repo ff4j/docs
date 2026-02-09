@@ -16,8 +16,7 @@ nav = [
       { "Feature" = "pages/about/core-concepts/feature/index.md" },
       { "Feature Store" = "pages/about/core-concepts/feature-store/index.md" },
       { "Property" = "pages/about/core-concepts/property/index.md" },
-      { "Property Store" = "pages/about/core-concepts/property-store/index.md" },
-      { "Security" = "pages/about/core-concepts/security/index.md" }
+      { "Property Store" = "pages/about/core-concepts/property-store/index.md" }
     ] },
     { "Advanced Concepts" = [
       { "AOP" = "pages/about/advanced-concepts/aop/index.md" },
