@@ -16,13 +16,13 @@ nav = [
       { "Feature" = "pages/about/core-concepts/feature/index.md" },
       { "Feature Store" = "pages/about/core-concepts/feature-store/index.md" },
       { "Property" = "pages/about/core-concepts/property/index.md" },
-      { "Property Store" = "pages/about/core-concepts/property-store/index.md" }
+      { "Property Store" = "pages/about/core-concepts/property-store/index.md" },
+      { "Feature Groups" = "pages/about/core-concepts/feature-groups/index.md" },
     ] },
     { "Advanced Concepts" = [
       { "AOP" = "pages/about/advanced-concepts/aop/index.md" },
       { "Caching" = "pages/about/advanced-concepts/caching/index.md" },
       { "CLI" = "pages/about/advanced-concepts/cli/index.md" },
-      { "Feature Groups" = "pages/about/advanced-concepts/feature-groups/index.md" },
       { "JMX" = "pages/about/advanced-concepts/jmx/index.md" },
       { "Spring Boot" = "pages/about/advanced-concepts/spring-boot/index.md" }
     ] }

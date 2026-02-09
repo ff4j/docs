@@ -1,1 +1,0 @@
-We know that you are waiting, we will have this section ready very soon.
