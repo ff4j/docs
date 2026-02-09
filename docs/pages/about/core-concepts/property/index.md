@@ -13,6 +13,10 @@ This value can be of any type and this the reason why, in ff4j, we chose to impl
 generics **`Property<?>`**. There is a Property implementation for each Java Raw Type as shown in
 the example below.
 
+!!!note "Note"
+
+    There is no JSR for properties at the moment. [`commons-configuration`](https://commons.apache.org/proper/commons-configuration/) proposes a definition that has been also used within ’Archaius’. The model of `ff4j` is more broad but you can work with `commons-configurations`.
+
 ## Property object
 
 ```mermaid
