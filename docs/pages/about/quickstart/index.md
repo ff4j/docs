@@ -1,6 +1,9 @@
 # Quickstart
 
-This page will guide you through the process of showcasing how to quickly start FF4j demo application.
+Watch a concise 15-minute walkthrough that highlights key use cases and includes a hands-on
+microservices demo.
+
+<iframe width="100%" height="360" src="https://www.youtube.com/embed/P6PtQtOYhus" title="FF4j demo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## With docker
 
