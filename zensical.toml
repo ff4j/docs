@@ -21,6 +21,7 @@ nav = [
     ] },
     { "Advanced Concepts" = [
       { "AOP" = "pages/about/advanced-concepts/aop/index.md" },
+      { "Audit" = "pages/about/advanced-concepts/audit/index.md" },
       { "Caching" = "pages/about/advanced-concepts/caching/index.md" },
       { "CLI" = "pages/about/advanced-concepts/cli/index.md" },
       { "JMX" = "pages/about/advanced-concepts/jmx/index.md" },
