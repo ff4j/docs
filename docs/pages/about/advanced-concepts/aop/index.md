@@ -18,9 +18,9 @@ if (ff4j.check("f1")) {
 ```
 
 This approach is quite intrusive into source code. You can nest different feature toggles at you
-may consider to clean often your code and remove obsolete features. 
+may consider to clean often your code and remove obsolete features.
 
-A good alternative is to rely on Dependency Injection, also called Inversion of control (IoC) to 
+A good alternative is to rely on Dependency Injection, also called Inversion of control (IoC) to
 choose the correct implementation of the service at runtime.
 
 Ff4j provide the **`@Flip`** annotation to perform flipping on methods using AOP proxies. At runtime, the
@@ -29,7 +29,13 @@ using feature status (enable/disable). It leverages on Spring AOP Framework.
 
 ## Sample
 
-1. Add the dependency to your project:
+!!!info 
+
+    The complete sample is available in the [ff4j-samples/ff4j-aop-sample](https://github.com/ff4j/ff4j-samples/tree/master/ff4j-aop-sample) repository.
+
+=== "1. Dependency"
+
+    Add the dependency [`ff4j-aop`](https://github.com/ff4j/ff4j/tree/main/ff4j-aop)
 
     ```xml title="pom.xml"
     <dependency>
@@ -39,97 +45,151 @@ using feature status (enable/disable). It leverages on Spring AOP Framework.
     </dependency>
     ```
 
-2. Create interface with the annotation @Flip on the method to be filpped:
+=== "2. Service interface"
 
-    ```java title="GreetingService.java"
+    Create interface with the annotation `@Flip` on the method to be flipped
+    
+    ```java title="org.ff4j.sample.aop.service.GreetingService.java"
+    package org.ff4j.sample.aop.service;
+    
+    import org.ff4j.aop.Flip;
+    
     public interface GreetingService {
-      @Flip(name = "language-french", alterBean = "greeting.english")
+    
+      @Flip(name = "language", alterBean = "greeting.french")
       String sayHello(String name);
     }
     ```
 
-3. Create the implementation of the service:
+=== "3. Service implementation"
 
-    ```java title="EnglishGreetingService.java"
+    We will define two implementations of the service, one for English and another for French. The
+    `@Flip` annotation on the `sayHello` method indicates that the implementation will be switched based
+    on the state of the "language" feature.
+    
+    ```java title="org.ff4j.sample.aop.service.EnglishGreetingService.java"
+    package org.ff4j.sample.aop.service;
+    
+    import org.springframework.context.annotation.Primary;
+    import org.springframework.stereotype.Component;
+    
+    @Primary
     @Component("greeting.english")
     public class EnglishGreetingService implements GreetingService {
     
       @Override
       public String sayHello(String name) {
-        return "Hello " + name;
+        return "Hello, " + name + "!";
       }
     }
     ```
 
-4. Create another implementation of the service:
+    !!!note "Note"
 
-    ```java title="FrenchGreetingService.java"
+        The `@Primary` annotation on the `EnglishGreetingService` indicates that it will be the default implementation when the "language" feature is disabled.
+    
+    ```java title="org.ff4j.sample.aop.service.FrenchGreetingService.java"
+    package org.ff4j.sample.aop.service;
+    
+    import org.springframework.stereotype.Component;
+    
     @Component("greeting.french")
-    public class FrenchGreetingService implements GreetingService { 
+    public class FrenchGreetingService implements GreetingService {
     
       @Override
       public String sayHello(String name) {
-        return "Bonjour " + name;
+        return "Bonjour, " + name + "!";
       }
     }
     ```
-   
-5. Scan the package for components and enable AOP in your Spring configuration:
 
-    ```java title="AppConfig.java"
+=== "4. FF4j Configuration"
+
+    Create an FF4j configuration class to set up the FF4j bean and enable component scanning for the AOP
+    package and your service package.
+    
+    ```java title="org.ff4j.sample.aop.config.FF4jConfig.java"
+    package org.ff4j.sample.aop.config;
+    
+    import org.ff4j.FF4j;
+    import org.springframework.context.annotation.Bean;
+    import org.springframework.context.annotation.ComponentScan;
+    import org.springframework.context.annotation.Configuration;
+    
     @Configuration
-    @ComponentScan(basePackages = {"org.ff4j.aop","org.ff4j.sample"})
-    @EnableAspectJAutoProxy
+    @ComponentScan({"org.ff4j.aop", "org.ff4j.sample.aop"})
     public class FF4jConfig {
     
       @Bean
       public FF4j ff4j() {
-        FF4j ff4j = new FF4j("ff4j-language-sample.xml");
-        return ff4j;
+        return new FF4j("ff4j-language-sample.xml");
       }
     }
     ```
-   
-6. Create ff4j configuration:
-
-    ```xml title="ff4j-language-sample.xml" hl_lines="3"
+    
+    Create the FF4j configuration file to define the "language" feature, which will control the switching between English and French greetings.
+    
+    ```xml title="resources/ff4j-language-sample.xml" hl_lines="6"
     <?xml version="1.0" encoding="UTF-8" ?>
-    <features>
-      <feature uid="language-french" enable="false" />
-    </features>
+    <ff4j xmlns="https://www.ff4j.org/schema/ff4j"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="https://www.ff4j.org/schema/ff4j https://ff4j.org/schema/ff4j-1.4.0.xsd">
+      <features>
+        <feature uid="language" enable="false"></feature>
+      </features>
+    </ff4j>
     ```
-   
-7. Test the service:
 
-    ```java title="GreetingServiceTest.java"
-    @RunWith(SpringJUnit4ClassRunner.class)
+=== "5. Test"
+
+    ```java title="org.ff4j.sample.aop.FF4jAopTest.java"
+    package org.ff4j.sample.aop;
+    
+    import org.ff4j.FF4j;
+    import org.ff4j.sample.aop.config.FF4jConfig;
+    import org.ff4j.sample.aop.service.GreetingService;
+    import org.junit.jupiter.api.Test;
+    import org.junit.jupiter.api.extension.ExtendWith;
+    import org.springframework.beans.factory.annotation.Autowired;
+    import org.springframework.test.context.ContextConfiguration;
+    import org.springframework.test.context.junit.jupiter.SpringExtension;
+    
+    import static org.assertj.core.api.Assertions.assertThat;
+    
+    @ExtendWith(SpringExtension.class)
     @ContextConfiguration(classes = FF4jConfig.class)
-    public class GreetingServiceTest {
+    class FF4jAopTest {
+    
+      @Autowired
+      private FF4j ff4j;
     
       @Autowired
       private GreetingService greetingService;
-   
-      @Autowired
-      private FF4j ff4j;
-   
-      @Test void defaultGreeting() {   
+    
+      @Test
+      void defaultEnglishGreeting() {
         // Given
-        FF4j ff4j = new FF4j("ff4j-language-sample.xml");
+        assertThat(ff4j.getFeatureStore().exist("language")).isTrue();
+        assertThat(ff4j.check("language")).isFalse();
         // When
         String greeting = greetingService.sayHello("John");
         // Then
-        assertEquals("Hello John", greeting);
+        assertThat(greeting).isEqualTo("Hello, John!");
       }
     
       @Test
-      public void testGreetingFrench() {   
+      void toggleFrenchGreeting() {
         // Given
-        FF4j ff4j = new FF4j("ff4j-language-sample.xml");
+        assertThat(ff4j.getFeatureStore().exist("language")).isTrue();
+        assertThat(ff4j.check("language")).isFalse();
         // When
-        ff4j.enable("language-french");
+        ff4j.enable("language");
         // Then
-        String frenchGreeting = greetingService.sayHello("John");
-        assertEquals("Bonjour John", greeting);
+        assertThat(ff4j.check("language")).isTrue();
+        // When
+        String greeting = greetingService.sayHello("John");
+        // Then
+        assertThat(greeting).isEqualTo("Bonjour, John!");
       }
     }
     ```
