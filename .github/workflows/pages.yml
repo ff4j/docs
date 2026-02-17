@@ -1,15 +1,22 @@
 name: PR Preview & GitHub Pages Publish
+
 on:
   pull_request:
     types: [opened, synchronize, reopened, closed]
   push:
     branches:
       - main
+
 permissions:
-  contents: write        # gh-pages + cleanup
-  pull-requests: write   # PR comments
-  pages: write           # deploy-pages
-  id-token: write        # required by deploy-pages
+  contents: write
+  pull-requests: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   build:
     if: github.event.action != 'closed'
@@ -39,7 +46,9 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: site
+          publish_branch: gh-pages
           destination_dir: pr-${{ github.event.pull_request.number }}
+          keep_files: true
 
       - name: Comment PR with preview URL
         if: github.event_name == 'pull_request'
@@ -48,15 +57,38 @@ jobs:
           script: |
             const pr = context.payload.pull_request.number;
             const { owner, repo } = context.repo;
-
             const url = `https://ff4j.github.io/docs/pr-${pr}/`;
+            const marker = "<!-- pr-preview-comment -->";
 
-            await github.rest.issues.createComment({
+            const body = `${marker} \n **Site preview available** 🔗 ${url}`;
+
+            const { data: comments } = await github.rest.issues.listComments({
               owner,
               repo,
               issue_number: pr,
-              body: `📘 **Site preview available**:\n\n${url}`
             });
+            
+            const existing = comments.find(comment =>
+              comment.body?.includes(marker)
+            );
+            
+            if (existing) {
+              // Update existing comment
+              await github.rest.issues.updateComment({
+                owner,
+                repo,
+                comment_id: existing.id,
+                body,
+              });
+            } else {
+              // Create new comment
+              await github.rest.issues.createComment({
+                owner,
+                repo,
+                issue_number: pr,
+                body,
+              });
+            }
 
       - name: Upload Pages artifact
         if: github.event_name == 'push'
@@ -76,8 +108,7 @@ jobs:
 
   cleanup:
     if: github.event_name == 'pull_request' &&
-      github.event.action == 'closed' &&
-      github.event.pull_request.merged == false
+      github.event.action == 'closed'
     runs-on: ubuntu-latest
 
     steps:
@@ -88,7 +119,12 @@ jobs:
 
       - name: Remove PR preview folder
         run: |
-          rm -rf pr-${{ github.event.pull_request.number }}
+          if [ -d "pr-${{ github.event.pull_request.number }}" ]; then
+            rm -rf pr-${{ github.event.pull_request.number }}
+            echo "Preview folder removed."
+          else
+            echo "Preview folder does not exist."
+          fi
 
       - name: Commit cleanup
         run: |
