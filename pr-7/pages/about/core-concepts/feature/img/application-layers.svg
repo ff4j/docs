@@ -1,0 +1,39 @@
+<svg width="700" height="300" viewBox="0 0 750 320" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="900" height="360" fill="none"/>
+
+  <!-- Layer rectangles -->
+  <g font-family="Helvetica, Arial, sans-serif" font-size="20" fill="#ffffff">
+
+    <!-- User Interface -->
+    <rect x="80" y="40" width="600" height="50" rx="6" fill="#2E8B57"/>
+    <text x="380" y="74" text-anchor="middle">User Interface</text>
+
+    <!-- Controllers -->
+    <rect x="80" y="105" width="600" height="50" rx="6" fill="#2E8B57"/>
+    <text x="380" y="139" text-anchor="middle">Controllers</text>
+
+    <!-- Services -->
+    <rect x="80" y="170" width="600" height="50" rx="6" fill="#2E8B57"/>
+    <text x="380" y="204" text-anchor="middle">Services</text>
+
+    <!-- Data -->
+    <rect x="80" y="235" width="600" height="50" rx="6" fill="#2E8B57"/>
+    <text x="380" y="269" text-anchor="middle">Data</text>
+  </g>
+
+  <!-- Feature vertical bar -->
+  <rect x="600" y="20" width="60" height="280" rx="4" fill="#B24A43"/>
+
+  <!-- Rotated Feature text -->
+  <text
+    x="740"
+    y="300"
+    transform="rotate(90 750 170)"
+    text-anchor="middle"
+    font-family="Helvetica, Arial, sans-serif"
+    font-size="25"
+    fill="#ffffff">
+    FEATURE
+  </text>
+</svg>
