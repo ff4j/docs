@@ -1,19 +1,17 @@
 # Spring Boot
 
-FF4j has provided Spring Boot starters which helps in integrating FF4j into your Spring Boot
-application. The starters provide autoconfiguration for FF4j, making it easy to set up and use. With
+FF4j provides Spring Boot starters that help integrate FF4j into a Spring Boot
+application. The starters provide auto-configuration for FF4j, making it easy to set up and use. With
 the starters, you can easily enable or disable features in your application based on the
 configuration of FF4j.
 
 ## Overview
 
-FF4j has 2 Spring Boot starter
+FF4j provides two Spring Boot starters:
 
-- [
-  `ff4j-spring-boot-starter-webmvc`](https://github.com/ff4j/ff4j-spring-boot-starter-parent?tab=readme-ov-file#ff4j-spring-boot-starter-webmvc) -
+- [`ff4j-spring-boot-starter-webmvc`](https://github.com/ff4j/ff4j-spring-boot-starter-parent?tab=readme-ov-file#ff4j-spring-boot-starter-webmvc) -
   The starter for Spring MVC applications.
-- [
-  `ff4j-spring-boot-starter-webflux`](https://github.com/ff4j/ff4j-spring-boot-starter-parent?tab=readme-ov-file#ff4j-spring-boot-starter-webflux) -
+- [`ff4j-spring-boot-starter-webflux`](https://github.com/ff4j/ff4j-spring-boot-starter-parent?tab=readme-ov-file#ff4j-spring-boot-starter-webflux) -
   The starter for Spring WebFlux applications.
 
 | Feature               |  ff4j-spring-boot-starter-webmvc  | ff4j-spring-boot-starter-webflux  |
@@ -32,7 +30,7 @@ FF4j has 2 Spring Boot starter
 
 === "1. Dependency"
 
-    Add the dependency [`ff4j-spring-boot-starter-webmvc`]()
+    Add the dependency `ff4j-spring-boot-starter-webmvc`
 
     ```xml title="pom.xml"
     <dependency>
@@ -71,7 +69,7 @@ FF4j has 2 Spring Boot starter
 
 === "1. Dependency"
 
-    Add the dependency [`ff4j-spring-boot-starter-webmvc`]()
+    Add the dependency `ff4j-spring-boot-starter-webflux`
 
     ```xml title="pom.xml"
     <dependency>
@@ -100,4 +98,4 @@ FF4j has 2 Spring Boot starter
 
 === "3. Bootstrap"
 
-    Run the application with `mvn spring-boot:run` and access the FF4j web console at `http://localhost:8080/ff4j-console`
+    Run the application with `mvn spring-boot:run` and access the FF4j web api at `http://localhost:8080/swagger-ui/index.html`
