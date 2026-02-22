@@ -1315,18 +1315,16 @@
                   
 
 <h1 id="spring-boot">Spring Boot<a class="headerlink" href="#spring-boot" title="Permanent link">&para;</a></h1>
-<p>FF4j has provided Spring Boot starters which helps in integrating FF4j into your Spring Boot
-application. The starters provide autoconfiguration for FF4j, making it easy to set up and use. With
+<p>FF4j provides Spring Boot starters that help integrate FF4j into a Spring Boot
+application. The starters provide auto-configuration for FF4j, making it easy to set up and use. With
 the starters, you can easily enable or disable features in your application based on the
 configuration of FF4j.</p>
 <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
-<p>FF4j has 2 Spring Boot starter</p>
+<p>FF4j provides two Spring Boot starters:</p>
 <ul>
-<li><a href="https://github.com/ff4j/ff4j-spring-boot-starter-parent?tab=readme-ov-file#ff4j-spring-boot-starter-webmvc">
-  <code>ff4j-spring-boot-starter-webmvc</code></a> -
+<li><a href="https://github.com/ff4j/ff4j-spring-boot-starter-parent?tab=readme-ov-file#ff4j-spring-boot-starter-webmvc"><code>ff4j-spring-boot-starter-webmvc</code></a> -
   The starter for Spring MVC applications.</li>
-<li><a href="https://github.com/ff4j/ff4j-spring-boot-starter-parent?tab=readme-ov-file#ff4j-spring-boot-starter-webflux">
-  <code>ff4j-spring-boot-starter-webflux</code></a> -
+<li><a href="https://github.com/ff4j/ff4j-spring-boot-starter-parent?tab=readme-ov-file#ff4j-spring-boot-starter-webflux"><code>ff4j-spring-boot-starter-webflux</code></a> -
   The starter for Spring WebFlux applications.</li>
 </ul>
 <table>
@@ -1364,7 +1362,7 @@ configuration of FF4j.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">1. Dependency</label><label for="__tabbed_1_2">2. Configuration</label><label for="__tabbed_1_3">3. Bootstrap</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p>Add the dependency <a href=""><code>ff4j-spring-boot-starter-webmvc</code></a></p>
+<p>Add the dependency <code>ff4j-spring-boot-starter-webmvc</code></p>
 <div class="language-xml highlight"><span class="filename">pom.xml</span><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">&lt;dependency&gt;</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="nt">&lt;groupId&gt;</span>org.ff4j<span class="nt">&lt;/groupId&gt;</span>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="nt">&lt;artifactId&gt;</span>ff4j-spring-boot-starter-webmvc<span class="nt">&lt;/artifactId&gt;</span>
@@ -1399,7 +1397,7 @@ configuration of FF4j.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:3"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">1. Dependency</label><label for="__tabbed_2_2">2. Configuration</label><label for="__tabbed_2_3">3. Bootstrap</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p>Add the dependency <a href=""><code>ff4j-spring-boot-starter-webmvc</code></a></p>
+<p>Add the dependency <code>ff4j-spring-boot-starter-webflux</code></p>
 <div class="language-xml highlight"><span class="filename">pom.xml</span><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nt">&lt;dependency&gt;</span>
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span><span class="nt">&lt;groupId&gt;</span>org.ff4j<span class="nt">&lt;/groupId&gt;</span>
 </span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">  </span><span class="nt">&lt;artifactId&gt;</span>ff4j-spring-boot-starter-webflux<span class="nt">&lt;/artifactId&gt;</span>
@@ -1422,7 +1420,7 @@ configuration of FF4j.</p>
 </span></code></pre></div>
 </div>
 <div class="tabbed-block">
-<p>Run the application with <code>mvn spring-boot:run</code> and access the FF4j web console at <code>http://localhost:8080/ff4j-console</code></p>
+<p>Run the application with <code>mvn spring-boot:run</code> and access the FF4j web api at <code>http://localhost:8080/swagger-ui/index.html</code></p>
 </div>
 </div>
 </div>
